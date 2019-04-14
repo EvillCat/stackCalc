@@ -17,14 +17,8 @@ public class PlusTest {
         plus = new Plus();
     }
 
-    @After
-    public void tearDown() {
-        context = null;
-        plus = null;
-    }
-
     @Test
-    public void execute() {
+    public void testExecute() {
         context.putValueToStack(3);
         context.putValueToStack(1);
         try {
@@ -32,6 +26,6 @@ public class PlusTest {
         } catch (Command.NotEnoughElementsException e) {
             e.printStackTrace();
         }
-        assertEquals(4, context.peek(), 4);
+        assertEquals(4, context.peek(), 0);
     }
 }

@@ -10,7 +10,7 @@ public class Print extends Command {
     public void execute(ExecutionContext context, String... params) throws NotEnoughElementsException {
         try {
             System.out.println(context.peek());
-        } catch (EmptyStackException ex) {
+        } catch (EmptyStackException | NullPointerException ex) {
             System.out.println("Стэк пуст");
         }
     }

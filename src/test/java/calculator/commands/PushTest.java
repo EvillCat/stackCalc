@@ -17,14 +17,8 @@ public class PushTest {
         push = new Push();
     }
 
-    @After
-    public void tearDown() {
-        context = null;
-        push = null;
-    }
-
     @Test
-    public void execute() {
+    public void testExecute() {
         context.define("b", 47);
         try {
             push.execute(context, "Push", "23");
@@ -32,7 +26,7 @@ public class PushTest {
         } catch (Command.NotEnoughElementsException e) {
             e.printStackTrace();
         }
-        assertEquals(47, context.pop(), 47);
-        assertEquals(23, context.pop(), 23);
+        assertEquals(47, context.pop(), 0);
+        assertEquals(23, context.pop(), 0);
     }
 }

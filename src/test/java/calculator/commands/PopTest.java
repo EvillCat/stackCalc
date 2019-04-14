@@ -18,14 +18,8 @@ public class PopTest {
          pop = new Pop();
     }
 
-    @After
-    public void tearDown() {
-        context = null;
-        pop = null;
-    }
-
     @Test
-    public void execute() {
+    public void testExecute() {
         context.putValueToStack(9);
         context.putValueToStack(8);
         try {
@@ -33,6 +27,6 @@ public class PopTest {
         } catch (Command.NotEnoughElementsException e) {
             e.printStackTrace();
         }
-        assertEquals(9, context.peek(), 9);
+        assertEquals(9, context.peek(), 0);
     }
 }

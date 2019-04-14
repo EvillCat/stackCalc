@@ -40,7 +40,7 @@ public class CommandProcessor {
         }
     }
 
-    private void checkOnCommand(String str) throws InvalidCommandException{
+    private void checkOnCommand(String str) {
         String[] params;
         str = str.trim();
         str = str.toLowerCase();
@@ -48,32 +48,18 @@ public class CommandProcessor {
         if (commands.containsKey(params[0])) {
             params[0] = commands.get(params[0]);
 
-            try {
-                commandInvoker.execute(context, params);
-            } catch (Command.NotEnoughElementsException e) {
-                e.printStackTrace();
-            }
+            commandInvoker.execute(context, params);
 
         } else if (!params[0].equals("#")) {
-            throw new InvalidCommandException();
+            System.out.println("Неверная команда");
         }
     }
 
-    public void readCommands()  {
+    public void readCommands() {
         String line;
         while ((line = source.getLine()) != null) {
-            try {
-                checkOnCommand(line);
-            } catch (InvalidCommandException e) {
-                e.printStackTrace();
-            }
+            checkOnCommand(line);
         }
     }
 
-    public class InvalidCommandException extends Exception {
-        @Override
-        public String toString() {
-            return "Неверная команда";
-        }
-    }
 }

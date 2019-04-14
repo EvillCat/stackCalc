@@ -7,7 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class CommandInvoker {
 
-    public void execute(ExecutionContext context, String... params) throws Command.NotEnoughElementsException {
+    public void execute(ExecutionContext context, String... params) {
         Object commandInstance = null;
         try {
             Class commandClass = Class.forName("calculator.commands." + params[0]);
@@ -21,8 +21,10 @@ public class CommandInvoker {
             e.printStackTrace();
         }
         try {
-            ((Command) commandInstance).execute(context, params);
-        } catch (ClassCastException | NullPointerException ex) {
+            if (commandInstance != null) {
+                ((Command) commandInstance).execute(context, params);
+            }
+        } catch (ClassCastException | NullPointerException | Command.NotEnoughElementsException ex) {
             ex.printStackTrace();
         }
 

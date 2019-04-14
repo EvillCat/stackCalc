@@ -5,7 +5,8 @@ import calculator.context.ExecutionContext;
 public class Push extends Command {
     @Override
     public void execute(ExecutionContext context, String... params) throws NotEnoughElementsException{
-        if (params.length == 0) {
+
+        if (params.length != 2) {
             throw new NotEnoughElementsException();
         } else {
             try{

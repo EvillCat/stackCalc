@@ -21,9 +21,7 @@ public class ExecutionContext {
     }
 
     public void define(String alias, double value) {
-        if (!definedValues.containsKey(alias)) {
-            definedValues.put(alias, value);
-        }
+        definedValues.put(alias, value);
     }
 
     public void putDefinedToStack(String variableName) throws NumberFormatException {
@@ -32,10 +30,6 @@ public class ExecutionContext {
 
     public double getOneValueFromStack() {
         return stack.pop();
-    }
-
-    public double[] getTwoValuesFromStack() throws EmptyStackException {
-        return new double[]{stack.pop(), stack.pop()};
     }
 
     public double pop() {

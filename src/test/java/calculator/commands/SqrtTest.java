@@ -17,20 +17,14 @@ public class SqrtTest {
         sqrt =  new Sqrt();
     }
 
-    @After
-    public void tearDown() {
-        context = null;
-        sqrt = null;
-    }
-
     @Test
-    public void execute() {
+    public void testExecute() {
         context.putValueToStack(9);
         try {
             sqrt.execute(context);
         } catch (Command.NotEnoughElementsException e) {
             e.printStackTrace();
         }
-        assertEquals(3, context.peek(), 3);
+        assertEquals(3, context.peek(), 0);
     }
 }

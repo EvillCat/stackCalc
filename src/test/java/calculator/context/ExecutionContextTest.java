@@ -14,47 +14,35 @@ public class ExecutionContextTest {
         context = new ExecutionContext();
     }
 
-    @After
-    public void tearDown() {
-        context = null;
-    }
-
     @Test
-    public void putValueToStack() {
+    public void testPutValueToStack() {
         context.putValueToStack(4);
-        assertEquals(4,context.getOneValueFromStack(), 4);
+        assertEquals(4, context.getOneValueFromStack(), 0);
     }
 
     @Test
-    public void putDefinedToStack() {
+    public void testPutDefinedToStack() {
         context.define("a", 3);
         context.putDefinedToStack("a");
-        assertEquals(3,context.getOneValueFromStack(), 3);
+        assertEquals(3, context.getOneValueFromStack(), 0);
     }
 
     @Test
-    public void getOneValueFromStack() {
+    public void testGetOneValueFromStack() {
         context.putValueToStack(9);
-        assertEquals(9,context.getOneValueFromStack(), 9);
+        assertEquals(9, context.getOneValueFromStack(), 0);
     }
 
     @Test
-    public void getTwoValuesFromStack() {
-        context.putValueToStack(8);
-        context.putValueToStack(7);
-        assertEquals(7,context.getOneValueFromStack(), 7);
-        assertEquals(8,context.getOneValueFromStack(), 8);
-    }
-
-    @Test
-    public void pop() {
+    public void testPop() {
         context.putValueToStack(5);
-        assertEquals(5, context.pop(), 5);
+        assertEquals(5, context.pop(), 0);
     }
 
     @Test
-    public void peek() {
+    public void testPeek() {
         context.putValueToStack(1);
-        assertEquals(1, context.peek(), 1);
+        assertEquals(1, context.peek(), 0);
+        context.getOneValueFromStack();
     }
 }

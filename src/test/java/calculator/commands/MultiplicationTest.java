@@ -1,7 +1,6 @@
 package calculator.commands;
 
 import calculator.context.ExecutionContext;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,14 +16,8 @@ public class MultiplicationTest {
         multiplication = new Multiplication();
     }
 
-    @After
-    public void tearDown() {
-        context = null;
-        multiplication = null;
-    }
-
     @Test
-    public void execute() {
+    public void testExecute() {
         context.putValueToStack(2);
         context.putValueToStack(2);
         try {
@@ -32,6 +25,6 @@ public class MultiplicationTest {
         } catch (Command.NotEnoughElementsException e) {
             e.printStackTrace();
         }
-        assertEquals(4, context.peek(), 4);
+        assertEquals(4, context.peek(), 0);
     }
 }

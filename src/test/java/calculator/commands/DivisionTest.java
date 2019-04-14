@@ -18,14 +18,8 @@ public class DivisionTest {
         division = new Division();
     }
 
-    @After
-    public void tearDown() {
-        context = null;
-        division = null;
-    }
-
     @Test
-    public void execute() {
+    public void testExecute() {
         context.putValueToStack(4);
         context.putValueToStack(2);
         try {
@@ -33,6 +27,6 @@ public class DivisionTest {
         } catch (Command.NotEnoughElementsException e) {
             e.printStackTrace();
         }
-        assertEquals(2, context.peek(), 2);
+        assertEquals(2, context.peek(), 0);
     }
 }

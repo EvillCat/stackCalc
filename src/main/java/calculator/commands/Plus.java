@@ -9,20 +9,20 @@ public class Plus extends Command {
 
     @Override
     public void execute(ExecutionContext context, String... params) throws NotEnoughElementsException {
-        double[] values = null;
-        try {
-            values = context.getTwoValuesFromStack();
-            context.putValueToStack(values[0] + values[1]);
-        } catch (EmptyStackException ex) {
-            try{
-                if (values.length > 0) {
-                    for (Double value : values) {
-                        context.putValueToStack(value);
-                    }
-                }
-            } catch (NullPointerException e) {
 
-            }
+        try {
+            value1 = context.getOneValueFromStack();
+        } catch (EmptyStackException ex) {
+            throw new NotEnoughElementsException();
+        }
+
+        try {
+            value2 = context.getOneValueFromStack();
+            context.putValueToStack(value1 + value2);
+        } catch (EmptyStackException ex) {
+            onEmptyStackException(context, value2);
+            throw new NotEnoughElementsException();
+        } catch (NullPointerException ex) {
             throw new NotEnoughElementsException();
         }
     }

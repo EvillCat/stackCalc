@@ -17,14 +17,8 @@ public class DefineTest {
         define = new Define();
     }
 
-    @After
-    public void tearDown() throws Exception {
-        context = null;
-        define = null;
-    }
-
     @Test
-    public void execute() {
+    public void testExecute() {
         try {
             define.execute(context, "Define", "a", "4");
         } catch (Command.NotEnoughElementsException e) {
