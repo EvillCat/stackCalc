@@ -12,5 +12,4 @@ public class CommandsConstants {
     public static final String SQRT = "Sqrt";
     public static final String PRINT = "Print";
 
-
 }

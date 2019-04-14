@@ -1,7 +1,6 @@
 package calculator.commands;
 
 import calculator.context.ExecutionContext;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,11 +21,7 @@ public class DivisionTest {
     public void testExecute() {
         context.putValueToStack(4);
         context.putValueToStack(2);
-        try {
-            division.execute(context);
-        } catch (Command.NotEnoughElementsException e) {
-            e.printStackTrace();
-        }
+        division.execute(context);
         assertEquals(2, context.peek(), 0);
     }
 }

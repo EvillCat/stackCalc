@@ -20,11 +20,7 @@ public class MultiplicationTest {
     public void testExecute() {
         context.putValueToStack(2);
         context.putValueToStack(2);
-        try {
-            multiplication.execute(context);
-        } catch (Command.NotEnoughElementsException e) {
-            e.printStackTrace();
-        }
+        multiplication.execute(context);
         assertEquals(4, context.peek(), 0);
     }
 }

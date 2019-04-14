@@ -1,7 +1,6 @@
 package calculator.commands;
 
 import calculator.context.ExecutionContext;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,11 +18,7 @@ public class DefineTest {
 
     @Test
     public void testExecute() {
-        try {
-            define.execute(context, "Define", "a", "4");
-        } catch (Command.NotEnoughElementsException e) {
-            e.printStackTrace();
-        }
+        define.execute(context, "Define", "a", "4");
         context.putDefinedToStack("a");
         assertEquals(4, context.peek(), 4);
     }

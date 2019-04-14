@@ -24,7 +24,7 @@ public class CommandInvoker {
             if (commandInstance != null) {
                 ((Command) commandInstance).execute(context, params);
             }
-        } catch (ClassCastException | NullPointerException | Command.NotEnoughElementsException ex) {
+        } catch (ClassCastException | NullPointerException ex) {
             ex.printStackTrace();
         }
 

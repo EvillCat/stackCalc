@@ -1,7 +1,6 @@
 package calculator.commands;
 
 import calculator.context.ExecutionContext;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,19 +13,15 @@ public class PopTest {
 
     @Before
     public void setUp() {
-         context = new ExecutionContext();
-         pop = new Pop();
+        context = new ExecutionContext();
+        pop = new Pop();
     }
 
     @Test
     public void testExecute() {
         context.putValueToStack(9);
         context.putValueToStack(8);
-        try {
-            pop.execute(context);
-        } catch (Command.NotEnoughElementsException e) {
-            e.printStackTrace();
-        }
+        pop.execute(context);
         assertEquals(9, context.peek(), 0);
     }
 }

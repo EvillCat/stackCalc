@@ -1,7 +1,6 @@
 package calculator.commands;
 
 import calculator.context.ExecutionContext;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,12 +19,8 @@ public class PushTest {
     @Test
     public void testExecute() {
         context.define("b", 47);
-        try {
-            push.execute(context, "Push", "23");
-            push.execute(context, "Push", "b");
-        } catch (Command.NotEnoughElementsException e) {
-            e.printStackTrace();
-        }
+        push.execute(context, "Push", "23");
+        push.execute(context, "Push", "b");
         assertEquals(47, context.pop(), 0);
         assertEquals(23, context.pop(), 0);
     }

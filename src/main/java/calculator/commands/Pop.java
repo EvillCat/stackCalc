@@ -3,12 +3,11 @@ package calculator.commands;
 import calculator.context.ExecutionContext;
 
 import java.util.EmptyStackException;
-import java.util.Stack;
 
 public class Pop extends Command {
 
     @Override
-    public void execute(ExecutionContext context, String... params) throws NotEnoughElementsException {
+    public void execute(ExecutionContext context, String... params) {
 
         try {
             System.out.println("Число снято со стэка: " + context.pop());

@@ -1,7 +1,6 @@
 package calculator.commands;
 
 import calculator.context.ExecutionContext;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,17 +13,13 @@ public class SqrtTest {
     @Before
     public void setUp() {
         context = new ExecutionContext();
-        sqrt =  new Sqrt();
+        sqrt = new Sqrt();
     }
 
     @Test
     public void testExecute() {
         context.putValueToStack(9);
-        try {
-            sqrt.execute(context);
-        } catch (Command.NotEnoughElementsException e) {
-            e.printStackTrace();
-        }
+        sqrt.execute(context);
         assertEquals(3, context.peek(), 0);
     }
 }

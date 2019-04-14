@@ -19,13 +19,6 @@ public class CommandInvokerTest {
         commandInvoker = new CommandInvoker();
     }
 
-//    @Test
-//    public void testThrowException() throws Exception{
-//        throw new Exception();
-//    }
-
-    // Почему тест проходит, если бросается исключение?
-    // Исключения выбрасываются в CommandInvoker и обрабатываются там же.
     @Test
     public void testIncorrectValuesExecute() {
         context.putValueToStack(4);
@@ -97,7 +90,6 @@ public class CommandInvokerTest {
         commandInvoker.execute(context, "Push", "6");
         assertEquals(6, context.peek(), 0);
     }
-
 
 
 }

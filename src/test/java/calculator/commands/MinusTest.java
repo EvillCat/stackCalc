@@ -17,7 +17,7 @@ public class MinusTest {
     }
 
     @Test
-    public void execute() throws Command.NotEnoughElementsException {
+    public void execute() {
         context.putValueToStack(2);
         context.putValueToStack(4);
         minus.execute(context);

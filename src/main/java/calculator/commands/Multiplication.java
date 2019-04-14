@@ -8,12 +8,12 @@ import java.util.EmptyStackException;
 public class Multiplication extends Command {
 
     @Override
-    public void execute(ExecutionContext context, String... params) throws NotEnoughElementsException {
+    public void execute(ExecutionContext context, String... params) {
 
         try {
             value1 = context.getOneValueFromStack();
         } catch (EmptyStackException ex) {
-            throw new NotEnoughElementsException();
+            System.out.println("Стэк пуст!");
         }
 
         try {
@@ -21,9 +21,9 @@ public class Multiplication extends Command {
             context.putValueToStack(value1 * value2);
         } catch (EmptyStackException ex) {
             onEmptyStackException(context, value2);
-            throw new NotEnoughElementsException();
+            System.out.println("На стэке всего один элемент");
         } catch (NullPointerException ex) {
-            throw new NotEnoughElementsException();
+            System.out.println("Стэк пуст!");
         }
     }
 }

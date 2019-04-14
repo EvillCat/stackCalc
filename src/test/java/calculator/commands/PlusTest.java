@@ -1,7 +1,6 @@
 package calculator.commands;
 
 import calculator.context.ExecutionContext;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,7 +12,7 @@ public class PlusTest {
 
     @Before
     public void setUp() {
-        context =  new ExecutionContext();
+        context = new ExecutionContext();
         plus = new Plus();
     }
 
@@ -21,11 +20,7 @@ public class PlusTest {
     public void testExecute() {
         context.putValueToStack(3);
         context.putValueToStack(1);
-        try {
-            plus.execute(context);
-        } catch (Command.NotEnoughElementsException e) {
-            e.printStackTrace();
-        }
+        plus.execute(context);
         assertEquals(4, context.peek(), 0);
     }
 }

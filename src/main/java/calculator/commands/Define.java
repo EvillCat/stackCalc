@@ -4,8 +4,7 @@ import calculator.context.ExecutionContext;
 
 public class Define extends Command {
     @Override
-    public void execute(ExecutionContext context, String... params) throws NotEnoughElementsException,
-                                                                           NumberFormatException {
+    public void execute(ExecutionContext context, String... params) throws NumberFormatException {
         if (params.length < 3) {
             System.out.println("Неверное использование команды define");
             System.out.println("define \"имя переменной\" \"значение\" ");
